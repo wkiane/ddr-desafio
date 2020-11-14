@@ -13,13 +13,7 @@ export default class AppProvider {
 
   public async boot() {
     // IoC container is ready
-    const HealthCheck = (await import('@ioc:Adonis/Core/HealthCheck')).default
-    const report = await HealthCheck.getReport()
-
     await mongoConnection.connect()
-    report.healthy
-      ? console.info('connection is looking good ')
-      : console.error('something wrong with the connection')
     Jobs.execute()
   }
 
