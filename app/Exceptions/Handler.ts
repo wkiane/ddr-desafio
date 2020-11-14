@@ -17,18 +17,18 @@ import Logger from '@ioc:Adonis/Core/Logger'
 import HttpExceptionHandler from '@ioc:Adonis/Core/HttpExceptionHandler'
 
 export default class ExceptionHandler extends HttpExceptionHandler {
-  constructor () {
+  constructor() {
     super(Logger)
   }
 
-  public async handle (error, response) {
+  public async handle(error, response) {
     if (error.code === 'E_VALIDATION_FAILURE') {
       return response.status(422).send(error.messages)
     }
 
     return response.status(500).json({
       status: 500,
-      errror: error
+      errror: error,
     })
   }
 }

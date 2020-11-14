@@ -1,33 +1,33 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
-import Jobs from 'App/Jobs/Jobs';
-import * as mongoConnection from 'Config/mongoConnection';
+import Jobs from 'App/Jobs/Jobs'
+import * as mongoConnection from 'Config/mongoConnection'
 
 export default class AppProvider {
-	public static needsApplication = true
+  public static needsApplication = true
 
-  constructor (protected app: ApplicationContract) {
-  }
+  constructor(protected app: ApplicationContract) {}
 
-  public register () {
+  public register() {
     // Register your own bindings
   }
 
-  public async boot () {
+  public async boot() {
     // IoC container is ready
     const HealthCheck = (await import('@ioc:Adonis/Core/HealthCheck')).default
     const report = await HealthCheck.getReport()
 
     await mongoConnection.connect()
-    report.healthy ? console.info('connection is looking good '): console.error('something wrong with the connection')
-    Jobs.execute();
+    report.healthy
+      ? console.info('connection is looking good ')
+      : console.error('something wrong with the connection')
+    Jobs.execute()
   }
 
-  public async ready () {
+  public async ready() {
     // App is ready
-
   }
 
-  public async shutdown () {
+  public async shutdown() {
     // Cleanup, since app is going down
     await mongoConnection.close()
   }

@@ -1,14 +1,15 @@
-import mongoose, { Document, Model, Schema } from 'mongoose';
+import mongoose, { Document, Model, Schema } from 'mongoose'
 
 export interface Tabulacao {
-  nomeCliente: string;
-  protocolo: string;
-  dataAtendimento: Date;
-  numeroBinado: string;
-  numeroAcesso: string;
+  nomeCliente: string
+  protocolo: string
+  dataAtendimento: Date
+  numeroBinado: string
+  numeroAcesso: string
 }
 
-const schema = new Schema({
+const schema = new Schema(
+  {
     nomeCliente: { type: String, required: true },
     protocolo: { type: String, required: true },
     dataAtendimento: { type: Date, required: true },
@@ -19,12 +20,13 @@ const schema = new Schema({
     timestamps: true,
     toJSON: {
       transform: (_, ret): void => {
-        ret.id = ret._id;
-        delete ret._id;
-        delete ret.__v;
-    }
+        ret.id = ret._id
+        delete ret._id
+        delete ret.__v
+      },
+    },
   }
-})
+)
 
 interface TabulacaoModel extends Omit<Tabulacao, '_id'>, Document {}
-export const Tabulacao: Model<TabulacaoModel> = mongoose.model('Tabulacao', schema);
+export const Tabulacao: Model<TabulacaoModel> = mongoose.model('Tabulacao', schema)

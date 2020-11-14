@@ -44,9 +44,8 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
         database: Env.get('DB_NAME'),
       },
       healthCheck: true,
-			debug: true,
+      debug: true,
     },
-
   },
 
   /*
@@ -61,8 +60,7 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
   | - Or define a custom function to compute the primary key for a given model.
   |
   */
-  orm: {
-  },
+  orm: {},
 }
 
 export default databaseConfig
