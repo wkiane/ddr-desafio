@@ -1,10 +1,13 @@
+import Env from '@ioc:Adonis/Core/Env'
 import { Matching } from 'App/Schemas/Matching'
 import { Tabulacao } from 'App/Schemas/Tabulacao'
 import { Gravacao } from 'App/Schemas/Gravacao'
 
 class MatchingJob {
   public async execute() {
-    console.log('Executando Matching Job')
+    if (Env.get('NODE_ENV') !== 'testing') {
+      console.log('Executando Matching Job')
+    }
 
     const gravacoes = await Gravacao.find()
     const tabulacoes = await Tabulacao.find()
@@ -37,6 +40,8 @@ class MatchingJob {
         }
       })
     })
+
+    await Tabulacao.find({})
   }
 }
 
