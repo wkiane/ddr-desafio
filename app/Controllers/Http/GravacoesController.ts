@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import ExceptionHandler from 'App/Exceptions/ExceptionHandler'
 import { Gravacao } from 'App/Schemas/Gravacao'
-import mongoose from 'mongoose'
 
 export default class GravacoesController {
   public async store({ request, response }: HttpContextContract) {
@@ -10,10 +10,12 @@ export default class GravacoesController {
       const result = await gravacao.save()
       response.status(201).send(result)
     } catch (error) {
-      if (error instanceof mongoose.Error.ValidationError) {
-        return response.status(422).send({ code: 422, error: error.message })
-      }
-      return response.status(500).send({ code: 500, message: 'Something went wrong' })
+      const errorResponse = await ExceptionHandler.execute(error)
+
+      return response.status(errorResponse.code).send({
+        code: errorResponse.code,
+        message: errorResponse.error,
+      })
     }
   }
 }

@@ -31,4 +31,19 @@ test.group('Tabulacoes Funcional Tests', (group) => {
       numeroAcesso: '11933333333',
     })
   })
+
+  test('should throw 422 when there is a validation error', async (assert) => {
+    const response = await supertest(BASE_URL).post('/tabulacoes').send({
+      protocolo: 'C202004002',
+      dataAtendimento: '2020-04-12 12:43:12',
+      numeroBinado: '11922222222',
+      numeroAcesso: '11933333333',
+    })
+
+    assert.equal(response.status, 422)
+    assert.deepInclude(response.body, {
+      code: 422,
+      message: 'Tabulacao validation failed: nomeCliente: Path `nomeCliente` is required.',
+    })
+  })
 })

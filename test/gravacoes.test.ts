@@ -27,4 +27,17 @@ test.group('Gravacoes Funcional Tests', (group) => {
       dataGravacao: '2020-04-12T15:34:53.000Z',
     })
   })
+
+  test('should throw 422 when there is a validation error', async (assert) => {
+    const response = await supertest(BASE_URL).post('/gravacoes').send({
+      telefone: '11911111111',
+      dataGravacao: '2020-04-12 12:34:53',
+    })
+
+    assert.equal(response.status, 422)
+    assert.deepInclude(response.body, {
+      code: 422,
+      message: 'Gravacao validation failed: ramal: Path `ramal` is required.',
+    })
+  })
 })

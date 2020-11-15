@@ -1,4 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import ExceptionHandler from 'App/Exceptions/ExceptionHandler'
 import { Matching } from 'App/Schemas/Matching'
 
 export default class MatchingController {
@@ -7,7 +8,12 @@ export default class MatchingController {
       const matchings = await Matching.find()
       return response.json(matchings)
     } catch (error) {
-      return response.status(500).send({ error: 'Something went wrong' })
+      const errorResponse = await ExceptionHandler.execute(error)
+
+      return response.status(errorResponse.code).send({
+        code: errorResponse.code,
+        message: errorResponse.error,
+      })
     }
   }
 }
