@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import ExceptionHandler from 'App/Exceptions/ExceptionHandler'
-import { Tabulacao } from 'App/Schemas/Tabulacao'
+import { Tabulacao } from 'App/Models/Tabulacao'
 
 export default class TabulacoesController {
   public async store({ request, response }: HttpContextContract) {

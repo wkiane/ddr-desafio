@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import ExceptionHandler from 'App/Exceptions/ExceptionHandler'
-import { Gravacao } from 'App/Schemas/Gravacao'
+import { Gravacao } from 'App/Models/Gravacao'
 
 export default class GravacoesController {
   public async store({ request, response }: HttpContextContract) {

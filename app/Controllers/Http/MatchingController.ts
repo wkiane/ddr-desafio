@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import ExceptionHandler from 'App/Exceptions/ExceptionHandler'
-import { Matching } from 'App/Schemas/Matching'
+import { Matching } from 'App/Models/Matching'
 
 export default class MatchingController {
   public async index({ response }: HttpContextContract) {

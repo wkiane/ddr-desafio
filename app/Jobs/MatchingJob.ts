@@ -1,7 +1,7 @@
 import Env from '@ioc:Adonis/Core/Env'
-import { Matching } from 'App/Schemas/Matching'
-import { Tabulacao } from 'App/Schemas/Tabulacao'
-import { Gravacao } from 'App/Schemas/Gravacao'
+import { Matching } from 'App/Models/Matching'
+import { Tabulacao } from 'App/Models/Tabulacao'
+import { Gravacao } from 'App/Models/Gravacao'
 
 class MatchingJob {
   public async execute() {

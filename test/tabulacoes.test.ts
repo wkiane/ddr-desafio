@@ -1,8 +1,8 @@
 import test from 'japa'
 import supertest from 'supertest'
-import { Gravacao } from 'App/Schemas/Gravacao'
-import { Matching } from 'App/Schemas/Matching'
-import { Tabulacao } from 'App/Schemas/Tabulacao'
+import { Gravacao } from 'App/Models/Gravacao'
+import { Matching } from 'App/Models/Matching'
+import { Tabulacao } from 'App/Models/Tabulacao'
 
 const BASE_URL = `http://${process.env.HOST}:${process.env.PORT}`
 
