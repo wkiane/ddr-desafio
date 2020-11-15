@@ -68,7 +68,7 @@ Body Type: JSON
     "dataAtendimento": "2020-04-12 12:43:12",
     "numeroBinado": "11922222222",
     "numeroAcesso": "11933333333"
-  },
+  }
 ```
 **Retorno**: Um JSON com as informações da tabulação cadastrada.
 
@@ -84,7 +84,7 @@ Body Type: JSON
     "telefone": "11911111111",
     "ramal": "203",
     "dataGravacao": "2020-04-12 12:34:53"
-  },
+  }
 ```
 
 **Retorno**: Um JSON com as informações da gravação cadastrada.
