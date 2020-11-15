@@ -13,6 +13,7 @@ const schema = new Schema(
     dataGravacao: { type: Date, required: true },
   },
   {
+    collection: 'gravacoes',
     timestamps: true,
     toJSON: {
       transform: (_, ret): void => {

@@ -39,8 +39,8 @@ test.group('Matching Funcional Tests', (group) => {
 
     assert.equal(response.status, 200)
     assert.deepInclude(firstMatching, {
-      tabulacao: String(tabulacao._id),
-      gravacao: String(gravacao._id),
+      tabulacaoId: String(tabulacao._id),
+      gravacaoId: String(gravacao._id),
     })
   })
 })

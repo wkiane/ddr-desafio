@@ -32,8 +32,8 @@ test.group('Matching Job Unit Tests', (group) => {
     const [matching] = await Matching.find({})
 
     assert.deepInclude(matching, {
-      tabulacao: tabulacao._id,
-      gravacao: gravacao._id,
+      tabulacaoId: tabulacao._id,
+      gravacaoId: gravacao._id,
     })
   })
 })

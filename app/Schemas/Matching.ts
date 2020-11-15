@@ -1,14 +1,14 @@
 import mongoose, { Document, Model, Schema } from 'mongoose'
 
 export interface Matching {
-  gravacao: string
-  tabulacao: string
+  gravacaoId: string
+  tabulacaoId: string
 }
 
 const schema = new Schema(
   {
-    tabulacao: { type: Schema.Types.ObjectId, ref: 'Tabulacao', required: true },
-    gravacao: { type: Schema.Types.ObjectId, ref: 'Gravacao', required: true },
+    tabulacaoId: { type: Schema.Types.ObjectId, ref: 'Tabulacao', required: true },
+    gravacaoId: { type: Schema.Types.ObjectId, ref: 'Gravacao', required: true },
   },
   {
     timestamps: true,

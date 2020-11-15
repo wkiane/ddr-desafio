@@ -15,12 +15,12 @@ class MatchingJob {
 
     matchings.forEach((matching) => {
       for (let i = 0; i < tabulacoes.length; i += 1) {
-        if (matching.tabulacao.toString() === tabulacoes[i]._id.toString()) {
+        if (matching.tabulacaoId.toString() === tabulacoes[i]._id.toString()) {
           tabulacoes.splice(i, 1)
         }
 
         for (let i = 0; i < gravacoes.length; i += 1) {
-          if (matching.gravacao.toString() === gravacoes[i]._id.toString()) {
+          if (matching.gravacaoId.toString() === gravacoes[i]._id.toString()) {
             gravacoes.splice(i, 1)
           }
         }
@@ -34,8 +34,8 @@ class MatchingJob {
           tabulacao.numeroAcesso === gravacao.telefone
         ) {
           Matching.create({
-            gravacao: gravacao._id,
-            tabulacao: tabulacao._id,
+            gravacaoId: gravacao._id,
+            tabulacaoId: tabulacao._id,
           })
         }
       })

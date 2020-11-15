@@ -17,6 +17,7 @@ const schema = new Schema(
     numeroAcesso: { type: String, required: true },
   },
   {
+    collection: 'tabulacoes',
     timestamps: true,
     toJSON: {
       transform: (_, ret): void => {
