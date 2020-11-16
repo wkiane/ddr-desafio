@@ -3,7 +3,7 @@
 ### Clonar o projeto
 
 ```
-$ git clone 
+$ git clone https://github.com/wkiane/ddr-desafio.git
 ```
 
 ### Instalar dependências
