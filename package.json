@@ -9,7 +9,7 @@
     "lint": "eslint . --ext=.ts --fix",
     "format": "prettier --write .",
     "test:unit": "node -r @adonisjs/assembler/build/register japaFileUnit.ts",
-    "test:functional": "node -r @adonisjs/assembler/build/register japaFileFuncional.ts",
+    "test:functional": "node -r @adonisjs/assembler/build/register japaFileFunctional.ts",
     "test": "yarn test:unit && yarn test:functional"
   },
   "devDependencies": {
