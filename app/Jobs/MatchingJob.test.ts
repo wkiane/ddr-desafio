@@ -2,13 +2,12 @@ import { Gravacao } from 'App/Models/Gravacao'
 import { Matching } from 'App/Models/Matching'
 import { Tabulacao } from 'App/Models/Tabulacao'
 import test from 'japa'
+import clearDatabase from '../../test/util/clearDatabase'
 import MatchingJob from './MatchingJob'
 
 test.group('Matching Job Unit Tests', (group) => {
   group.beforeEach(async () => {
-    await Gravacao.deleteMany({})
-    await Matching.deleteMany({})
-    await Tabulacao.deleteMany({})
+    await clearDatabase()
   })
 
   test('should create matchings', async (assert) => {

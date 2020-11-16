@@ -1,16 +1,13 @@
 import test from 'japa'
 import supertest from 'supertest'
-import { Gravacao } from 'App/Models/Gravacao'
-import { Matching } from 'App/Models/Matching'
-import { Tabulacao } from 'App/Models/Tabulacao'
+
+import clearDatabase from './util/clearDatabase'
 
 const BASE_URL = `http://${process.env.HOST}:${process.env.PORT}`
 
 test.group('Gravacoes Funcional Tests', (group) => {
   group.beforeEach(async () => {
-    await Gravacao.deleteMany({})
-    await Matching.deleteMany({})
-    await Tabulacao.deleteMany({})
+    await clearDatabase()
   })
 
   test('should create a gravacao', async (assert) => {

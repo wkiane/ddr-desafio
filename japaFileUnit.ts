@@ -3,6 +3,7 @@ import { join } from 'path'
 import getPort from 'get-port'
 import { configure } from 'japa'
 import sourceMapSupport from 'source-map-support'
+import clearDatabase from './test/util/clearDatabase'
 
 process.env.NODE_ENV = 'testing'
 process.env.ADONIS_ACE_CWD = join(__dirname)
@@ -20,7 +21,7 @@ function getTestFiles() {
     return 'app/**/*.test.ts'
   }
 
-  return `${userDefined.replace(/\.ts$|\.js$/, '')}.ts`
+  return `app/**/${userDefined.replace(/\.ts$|\.js$/, '')}.test.ts`
 }
 
 /**
@@ -28,5 +29,5 @@ function getTestFiles() {
  */
 configure({
   files: getTestFiles(),
-  before: [startHttpServer],
+  before: [startHttpServer, clearDatabase],
 })
