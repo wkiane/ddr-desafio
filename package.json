@@ -13,6 +13,7 @@
     "test": "yarn test:unit && yarn test:functional"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.10.0",
     "@adonisjs/assembler": "^3.0.0",
     "@types/node-cron": "^2.0.3",
     "@types/supertest": "^2.0.10",
@@ -35,7 +36,6 @@
     "@adonisjs/core": "^5.0.4-preview-rc",
     "@adonisjs/lucid": "^9.0.3",
     "@adonisjs/repl": "^1.0.0",
-    "@types/mongoose": "^5.10.0",
     "luxon": "^1.25.0",
     "mongoose": "^5.10.14",
     "node-cron": "^2.0.3",

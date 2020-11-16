@@ -3,7 +3,5 @@ import { Matching } from '../../app/Models/Matching'
 import { Tabulacao } from '../../app/Models/Tabulacao'
 
 export default async function clearDatabase() {
-  await Gravacao.deleteMany({})
-  await Matching.deleteMany({})
-  await Tabulacao.deleteMany({})
+  await Promise.all([Gravacao.deleteMany({}), Matching.deleteMany({}), Tabulacao.deleteMany({})])
 }
